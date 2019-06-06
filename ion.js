@@ -1,10 +1,6 @@
 //ion.js
-/*
-  분수 : fraction
-  분자 : numerator
-  분모 : denominator
-*/
 
+//funtions
 function isInt(factor){ //isInt = returns true if factor is integer, else, return false
   return (typeof factor == "number") && (factor%1 === 0) //check if typeof factor is number and factor % 1 is 0
 }
@@ -24,6 +20,7 @@ function gcd(x,y){ //gcd = returns the greatest common divisor (gcd) of x,y ; if
   }
 }
 
+//Fraction
 let Fraction = function(numerator,denominator){ //Fraction = makes Fraction
   if(denominator === 0){ //denominator must not be 0
     var e = new Error("Denominator can't be 0") //make error
@@ -44,7 +41,11 @@ let Fraction = function(numerator,denominator){ //Fraction = makes Fraction
 Fraction.prototype.__defineGetter__("reduce",function(){ //Fraction.reduce = Reduces the Fraction
   var tmp = this //copy this to tmp
   var g = gcd(tmp.numerator,tmp.denominator) //set g to gcd of numerator, denominator
-  tmp.numerator = tmp.numberator/g //divide numerator by gcd
+  tmp.numerator = tmp.numerator/g //divide numerator by gcd
   tmp.denominator = tmp.denominator/g //divide denominator by gcd
   return tmp //return result
 })
+
+//Term
+let Term = function(coefficient,letter,power){ //Term = coefficient × ( letter ^ power )
+}
