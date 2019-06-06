@@ -41,6 +41,10 @@ let Fraction = function(numerator,denominator){ //Fraction = makes Fraction
   return this //return fraction
 }
 
-Fraction.__defineGetter__("reduce",function(){ //Fraction.reduce = Reduces the Fraction
-
+Fraction.prototype.__defineGetter__("reduce",function(){ //Fraction.reduce = Reduces the Fraction
+  var tmp = this //copy this to tmp
+  var g = gcd(tmp.numerator,tmp.denominator) //set g to gcd of numerator, denominator
+  tmp.numerator = tmp.numberator/g //divide numerator by gcd
+  tmp.denominator = tmp.denominator/g //divide denominator by gcd
+  return tmp //return result
 })
